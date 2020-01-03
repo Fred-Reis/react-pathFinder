@@ -114,23 +114,615 @@
   z-index: -2;
 }
 .loja-d{
-  width: 90px;
-  height: 49px;
-  top: 211px;
-  left: 186px;
+  width: 19px;
+  height: 19px;
+  top: 242.5px;
+  left: 212px;
   background-color: #bbbb;
   position: absolute; 
-  clip-path: polygon(82% 0, 82% 7%, 100% 7%, 100% 97%, 47% 97%, 47% 64%, 12% 64%, 12% 0);
+  clip-path: inset(5% 20% 15% 10%);
   z-index: -1;
 }
 .loja-d-border{
-  width: 90px;
-  height: 52px;
-  top: 210px;
-  left: 187px;
+  width: 21px;
+  height: 21px;
+  top: 242px;
+  left: 211px;
   background-color: #000;
   position: absolute; 
-  clip-path: polygon(82% 0, 82% 7%, 100% 7%, 100% 96%, 45% 96%, 45% 64%, 10% 64%, 10% 0);
+  clip-path: inset(5% 20% 15% 10%);
+  z-index: -2;
+}
+.loja-e{
+  width: 16px;
+  height: 15.5px;
+  top: 243.3px;
+  left: 197px;
+  background-color: #bbbb;
+  position: absolute; 
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%, 0% 70%);;
+  z-index: -1;
+}
+.loja-e-border{
+  width: 18px;
+  height: 16.8px;
+  top: 243px;
+  left: 196px;
+  background-color: #000;
+  position: absolute; 
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%, 0% 70%);;
+  z-index: -2;
+}
+.loja-f{
+  width: 70px;
+  height: 60px;
+  top: 195.9px;
+  left: 419px;
+  background-color: #bbbb;
+  position: absolute; 
+  clip-path: polygon(35% 0, 53% 0%, 53% 100%, 0 100%, 0% 38%);
+
+  z-index: -1;
+}
+.loja-f-border{
+  width: 73px;
+  height: 62.5px;
+  top: 195px;
+  left: 418px;
+  background-color: #000;
+  position: absolute; 
+  clip-path: polygon(35% 0, 53% 0%, 53% 100%, 0 100%, 0% 38%);
+  z-index: -2;
+}
+.loja-g{
+  width: 18px;
+  height: 18px;
+  top: 176.5px;
+  left: 412px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-g-border{
+  width: 18.5px;
+  height: 19.8px;
+  top: 175.7px;
+  left: 412px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-h{
+  width: 18px;
+  height: 18px;
+  top: 176.5px;
+  left: 431px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-h-border{
+  width: 19px;
+  height: 19.8px;
+  top: 175.7px;
+  left: 430.5px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-i{
+  width: 18px;
+  height: 18px;
+  top: 176.5px;
+  left: 450px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-i-border{
+  width: 19px;
+  height: 19.8px;
+  top: 175.7px;
+  left: 449.5px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-j{
+  width: 18px;
+  height: 18px;
+  top: 176.5px;
+  left: 469px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-j-border{
+  width: 19px;
+  height: 19.8px;
+  top: 175.7px;
+  left: 468.5px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-l{
+  width: 15px;
+  height: 6px;
+  top: 196px;
+  left: 457px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-l-border{
+  width: 16.5px;
+  height: 7.3px;
+  top: 195.5px;
+  left: 456px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-m{
+  width: 15px;
+  height: 53.5px;
+  top: 202.8px;
+  left: 457px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-m-border{
+  width: 16px;
+  height: 54.5px;
+  top: 202.8px;
+  left: 456.5px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-n{
+  width: 35px;
+  height: 46px;
+  top: 210.5px;
+  left: 473px;
+  background-color: #bbbb;
+  clip-path: polygon(55% 0, 55% 87%, 39% 100%, 0 100%, 0 0);
+  position: absolute; 
+  z-index: -1;
+}
+.loja-n-border{
+  width: 37px;
+  height: 47.5px;
+  top: 209.8px;
+  left: 472.5px;
+  background-color: #bbbb;
+  clip-path: polygon(55% 0, 55% 87%, 39% 100%, 0 100%, 0 0);
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-o{
+  width: 75px;
+  height: 54.5px;
+  top: 195.4px;
+  left: 473px;
+  clip-path: polygon(90% 0, 90% 38%, 70% 38%, 70% 78%, 45% 78%, 27% 100%, 27% 26.5%, 0 26.5%, 0% 0);
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-o-border{
+  width: 77px;
+  height: 56.5px;
+  top: 195px;
+  left: 472.1px;
+  clip-path: polygon(90% 0, 90% 38%, 70% 38%, 70% 78%, 45% 78%, 26% 100%, 26% 27%, 0 27%, 0% 0);
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-p{
+  width: 14.4px;
+  height: 21.2px;
+  top: 216.8px;
+  left: 526.2px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-p-border{
+  width: 15.4px;
+  height: 22.8px;
+  top: 216.2px;
+  left: 526px;
+  background-color: #000;
+  position: absolute; 
   z-index: -2;
 }
 
+/*
+  ### LOJAS DEBAIXO ###
+*/
+
+.loja-down{
+  width: 20.4px;
+  height: 15.2px;
+  top: 280.8px;
+  left: 195.2px;
+  clip-path: polygon(35% 0, 59% 0, 59% 84%, 0 84%, 0 38%);
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-border{
+  width: 23px;
+  height: 17.3px;
+  top: 279.7px;
+  left: 194.4px;
+  clip-path: polygon(35% 0, 59% 0, 59% 84%, 0 84%, 0 38%);
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-a{
+  width: 39.4px;
+  height: 35.2px;
+  top: 280.8px;
+  left: 198.8px;
+  clip-path: polygon(24% 39%, 24% 0, 54% 0, 54% 100%, 5% 100%, 5% 39%);
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-a-border{
+  width: 42px;
+  height: 37px;
+  top: 279.7px;
+  left: 197.9px;
+  clip-path: polygon(24% 39%, 24% 0, 54% 0, 54% 100%, 5% 100%, 5% 39%);
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-b{
+  width: 13px;
+  height: 13px;
+  top: 280.5px;
+  left: 221px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-b-border{
+  width: 14px;
+  height: 14.5px;
+  top: 279.8px;
+  left: 220.5px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-c{
+  width: 73px;
+  height: 36px;
+  top: 280.5px;
+  left: 217.5px;
+  clip-path: polygon(24% 39%, 24% 0, 44% 0, 44% 100%, 5% 100%, 5% 39%);
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-c-border{
+  width: 76px;
+  height: 37px;
+  top: 279.8px;
+  left: 216.2px;
+  clip-path: polygon(24% 38%, 24% 0, 45% 0, 45% 100%, 5% 100%, 5% 38%);
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-d{
+  width: 23px;
+  height: 36px;
+  top: 280.5px;
+  left: 250.5px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-d-border{
+  width: 24.5px;
+  height: 37px;
+  top: 279.8px;
+  left: 250px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-e{
+  width: 23px;
+  height: 36px;
+  top: 281.5px;
+  left: 274.8px;
+  clip-path: polygon(55% 28%, 89% 28%, 89% 100%, 0 100%, 0 0);
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-e-border{
+  width: 24.5px;
+  height: 37px;
+  top: 279.8px;
+  left: 274.5px;
+  clip-path: polygon(55% 28%, 89% 28%, 89% 100%, 0 100%, 0 0);
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-f{
+  width: 10px;
+  height: 26px;
+  top: 291.5px;
+  left: 296.4px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-f-border{
+  width: 11px;
+  height: 27px;
+  top: 290.2px;
+  left: 296.2px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-g{
+  width: 23px;
+  height: 27px;
+  top: 291.5px;
+  left: 307.6px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-g-border{
+  width: 24.5px;
+  height: 27px;
+  top: 290.2px;
+  left: 307.2px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-h{
+  width: 23px;
+  height: 27px;
+  top: 291.5px;
+  left: 331.8px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-h-border{
+  width: 24.5px;
+  height: 27px;
+  top: 290.2px;
+  left: 331.5px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-i{
+  width: 23px;
+  height: 27px;
+  top: 291.5px;
+  left: 356px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-i-border{
+  width: 24px;
+  height: 27px;
+  top: 290.2px;
+  left: 356px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-j{
+  width: 23.5px;
+  height: 37px;
+  top: 281.2px;
+  left: 380.2px;
+  clip-path: polygon(54% 0, 100% 0, 100% 100%, 0 100%, 0 28%, 15% 28%);
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-j-border{
+  width: 24.5px;
+  height: 37px;
+  top: 279.8px;
+  left: 380px;
+  clip-path: polygon(52% 0, 100% 0, 100% 100%, 0 100%, 0 28%, 14% 28%);
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-k{
+  width: 9px;
+  height: 18px;
+  top: 281.2px;
+  left: 404.5px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-k-border{
+  width: 10px;
+  height: 20px;
+  top: 279.8px;
+  left: 404.3px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-l{
+  width: 18px;
+  height: 18px;
+  top: 281.2px;
+  left: 414.5px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-l-border{
+  width: 19.5px;
+  height: 20px;
+  top: 279.8px;
+  left: 414px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-m{
+  width: 52.5px;
+  height: 37px;
+  top: 281.2px;
+  left: 404.5px;
+  clip-path: polygon(55.5% 0%, 100% 0, 100% 100%, 0 100%, 0 51%, 55.5% 51%);
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-m-border{
+  width: 54.5px;
+  height: 37px;
+  top: 279.8px;
+  left: 403.3px;
+  clip-path: polygon(55.5% 0%, 100% 0, 100% 100%, 0 100%, 0 51%, 55.5% 51%);
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-n{
+  width: 7px;
+  height: 36px;
+  top: 281.2px;
+  left: 458px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-n-border{
+  width: 8.3px;
+  height: 38px;
+  top: 279.8px;
+  left: 457.5px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-o{
+  width: 7px;
+  height: 36px;
+  top: 281.2px;
+  left: 466px;
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-o-border{
+  width: 8.3px;
+  height: 38px;
+  top: 279.8px;
+  left: 465.5px;
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-p{
+  width: 25px;
+  height: 50px;
+  top: 281.2px;
+  left: 471.7px;
+  clip-path: polygon(57% 0%, 100% 20%, 100% 100%, 0 100%, 0 84%, 10% 84%, 10% 0);
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-p-border{
+  width: 26.7px;
+  height: 52px;
+  top:  279.8px;
+  left: 471px;
+  clip-path: polygon(57% 0%, 100% 20%, 100% 100%, 0 100%, 0 82%, 10% 82%, 10% 0);
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-q{
+  width: 19px;
+  height: 25px;
+  top: 291.7px;
+  left: 497.7px;
+  clip-path: polygon(51% 32%, 100% 32%, 100% 100%, 0 99%, 0 0);
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-q-border{
+  width: 20px;
+  height: 27px;
+  top: 290.3px;
+  left: 497.7px;
+  clip-path: polygon(51% 32%, 100% 32%, 100% 100%, 0 99%, 0 0);
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-r{
+  width: 20px;
+  height: 26px;
+  top: 299.5px;
+  left: 505.1px;
+  clip-path: polygon(62% 0, 100% 0, 100% 100%, 0 100%, 0 70%, 63% 70%);
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-r-border{
+  width: 22px;
+  height: 27px;
+  top: 298.9px;
+  left: 504px;
+  clip-path: polygon(62% 0, 100% 0, 100% 100%, 0 100%, 0 67%, 63% 67%);
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}
+.loja-down-s{
+  width: 27.4px;
+  height: 15px;
+  top: 317.3px;
+  left: 497.7px;
+  clip-path: polygon(100% 60%, 100% 100%, 0 100%, 0 0, 24% 0, 24% 60%);
+  background-color: #bbbb;
+  position: absolute; 
+  z-index: -1;
+}
+.loja-down-s-border{
+  width: 30px;
+  height: 16px;
+  top: 317px;
+  left: 497px;
+  clip-path: polygon(97% 53%, 97% 100%, 0 100%, 0 0, 24% 0, 24% 53%);
+  background-color: #000;
+  position: absolute; 
+  z-index: -2;
+}

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PF from "pathfinding";
 
-const initialState = new PF.Grid(10, 10);
-const isStart = [0, 0];
-const isFinish = [7, 8];
+const initialState = new PF.Grid(30, 30);
+const isStart = [9, 0];
+const isFinish = [9, 4];
 const isWall = [0, 1]
 
 export default class Finder extends Component {
@@ -14,7 +14,7 @@ export default class Finder extends Component {
 
   componentDidMount() {
 
-    const grid = new PF.Grid(10, 10);
+    const grid = new PF.Grid(30, 30);
 
     // define way of can't be used
     grid.setWalkableAt(isWall[0], isWall[1], false);
@@ -27,6 +27,12 @@ export default class Finder extends Component {
     grid.setWalkableAt(8, 3, false);
     grid.setWalkableAt(9, 3, false);
     grid.setWalkableAt(2, 1, false);
+    grid.setWalkableAt(3, 4, false);
+    grid.setWalkableAt(3, 5, false);
+    grid.setWalkableAt(3, 6, false);
+    grid.setWalkableAt(3, 7, false);
+    grid.setWalkableAt(8, 5, false);
+    grid.setWalkableAt(9, 5, false);
     this.setState({ grid });
     console.log("grid1", grid.nodes);
     var start = document.getElementById(`node-${isStart[0]}-${isStart[1]}`);
@@ -62,18 +68,30 @@ export default class Finder extends Component {
     }
   }
 
+  // getCoordinates = (e) => {
+  //   window.addEventListener('mousemove', function (e) {
+  //     console.log(e.x, e.y)
+  //   })
+  // }
+
+  handleCoord = (e) => {
+    console.log(e.target.id)
+  }
 
   render() {
     var { grid } = this.state;
     var grids = grid.nodes;
 
     return (
-      <>
+      <Fragment style={{ margin: '0', padding: '0' }}>
         <button onClick={this.animateShortestPath}>
           press to get path
         </button>
         <button onClick={this.getPath}>
           press to find path
+        </button>
+        <button onClick={this.getCoordinates}>
+          press to get coordinates
         </button>
         <div
           style={{
@@ -85,8 +103,8 @@ export default class Finder extends Component {
           {grids.map(grid => (
             <div
               className="row"
-              key={grid}
-              date={grid}
+              key={grid.id}
+              data={grid}
               style={{
                 display: 'flex',
                 margin: "0px",
@@ -97,26 +115,27 @@ export default class Finder extends Component {
               {grid.map((elem, Id) => (
                 <div
                   id={`node-${elem.x}-${elem.y}`}
-                  key={Id}
+                  key={Id.id}
                   data={elem}
+                  onClick={this.handleCoord}
                   style={{
                     background: elem.walkable === true ? 'green' : 'red',
                     border: '1px solid #000',
-                    width: '50px',
-                    height: '50px',
+                    width: '10px',
+                    height: '10px',
                     margin: '0px',
                     padding: '0px'
                   }}
                 >
                   {/* {console.log("elemAqui", elem)} */}
-                  <p style={{ fontSize: '10px', textAlign: 'center' }}>{`${elem.x} , ${elem.y} , ${elem.walkable}`}</p>
+                  {/* <p style={{ fontSize: '10px', textAlign: 'center' }}>{`${elem.x} , ${elem.y} , ${elem.walkable}`}</p> */}
                 </div>
               ))}
             </div>
           ))
           }
         </div>
-      </>
+      </Fragment>
     );
   }
 }
