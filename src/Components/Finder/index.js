@@ -69,12 +69,14 @@ export default class Finder extends Component {
   }
 
   // getCoordinates = (e) => {
+  //  this function get coordinates off all screen at pass the mouse
   //   window.addEventListener('mousemove', function (e) {
   //     console.log(e.x, e.y)
   //   })
   // }
 
   handleCoord = (e) => {
+    e.preventDefault();
     console.log(e.target.id)
   }
 
@@ -83,7 +85,7 @@ export default class Finder extends Component {
     var grids = grid.nodes;
 
     return (
-      <Fragment style={{ margin: '0', padding: '0' }}>
+      <Fragment >
         <button onClick={this.animateShortestPath}>
           press to get path
         </button>
@@ -93,6 +95,12 @@ export default class Finder extends Component {
         <button onClick={this.getCoordinates}>
           press to get coordinates
         </button>
+
+        <label>
+          <input type="radio" value="option1" checked={console.log('check')} />
+          Option 1
+        </label>
+
         <div
           style={{
             display: "flex",
