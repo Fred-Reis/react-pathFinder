@@ -1,57 +1,60 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PF from "pathfinding";
 
-const initialState = new PF.Grid(30, 30);
-const isStart = [9, 0];
-const isFinish = [9, 4];
-const isWall = [0, 1]
+const initialState = {
+  grid: new PF.Grid(30, 30),
+  path: [],
+  option: '',
+  option: '',
+  start: '',
+  finish: '',
+  wall: ''
+
+}
 
 export default class Finder extends Component {
-  state = {
-    grid: initialState,
-    path: [],
-  };
+  state = initialState
 
   componentDidMount() {
 
     const grid = new PF.Grid(30, 30);
 
-    // define way of can't be used
-    grid.setWalkableAt(isWall[0], isWall[1], false);
-    grid.setWalkableAt(1, 1, false);
-    grid.setWalkableAt(3, 3, false);
-    grid.setWalkableAt(4, 3, false);
-    grid.setWalkableAt(5, 3, false);
-    grid.setWalkableAt(6, 3, false);
-    grid.setWalkableAt(7, 3, false);
-    grid.setWalkableAt(8, 3, false);
-    grid.setWalkableAt(9, 3, false);
-    grid.setWalkableAt(2, 1, false);
-    grid.setWalkableAt(3, 4, false);
-    grid.setWalkableAt(3, 5, false);
-    grid.setWalkableAt(3, 6, false);
-    grid.setWalkableAt(3, 7, false);
-    grid.setWalkableAt(8, 5, false);
-    grid.setWalkableAt(9, 5, false);
     this.setState({ grid });
+
     console.log("grid1", grid.nodes);
-    var start = document.getElementById(`node-${isStart[0]}-${isStart[1]}`);
-    start.style.backgroundColor = 'blue';
-    document.getElementById(`node-${isFinish[0]}-${isFinish[1]}`).style.backgroundColor = 'orange';
+
+  }
+
+  componentDidUpdate(_, prevState) {
+    const { start, finish, wall, grid } = this.state
+    if (prevState != this.state) {
+
+      if (start != '') {
+        document.getElementById(`${start[0]},${start[1]}`).style.backgroundColor = 'blue';
+      }
+
+      if (finish != '') {
+        document.getElementById(`${finish[0]},${finish[1]}`).style.backgroundColor = 'orange';
+      }
+
+      if (wall != '') {
+        grid.setWalkableAt(this.state.wall[0], this.state.wall[1], false);
+        document.getElementById(`${wall[0]},${wall[1]}`).style.backgroundColor = 'red';
+      }
+    }
   }
 
   // function to find the path
   getPath = () => {
-
-    const { grid } = this.state
+    const { grid, start, finish } = this.state
     // create backup of grid to use in the path
     var gridBackup = grid.clone();
     console.log('gridNoPath', gridBackup)
     const finder = new PF.AStarFinder();
     // coordinates x,y start point x,y end point 
-    let merda = finder.findPath(isStart[0], isStart[1], isFinish[0], isFinish[1], gridBackup);
-    this.setState({ path: merda })
-    console.log('path', merda)
+    let path = finder.findPath(start[0], start[1], finish[0], finish[1], gridBackup);
+    this.setState({ path })
+    console.log('path', path)
   };
 
   //function to animate the path
@@ -61,23 +64,48 @@ export default class Finder extends Component {
     for (let i = 0; i < path.length; i++) {
       setTimeout(() => {
         const node = path[i];
-        const ppath = document.getElementById(`node-${node[0]}-${node[1]}`)//.style.backgroundColor = 'yellow';
-        ppath.style.backgroundColor = 'yellow';
+        document.getElementById(`${node[0]},${node[1]}`).style.backgroundColor = 'yellow';
         console.log('node', node)
       }, 150 * i);
     }
   }
 
-  // getCoordinates = (e) => {
-  //  this function get coordinates off all screen at pass the mouse
-  //   window.addEventListener('mousemove', function (e) {
-  //     console.log(e.x, e.y)
-  //   })
-  // }
+
 
   handleCoord = (e) => {
+    const { start, finish, wall, grid, option } = this.state
     e.preventDefault();
-    console.log(e.target.id)
+    var node = (e.target.id.split(','))
+    var x = Number(node[0])
+    var y = Number(node[1])
+    var coord = [x, y]
+
+    if (option === 'start') {
+      this.setState({ start: coord })
+      console.log('state start', start)
+      document.getElementById(`${start[0]},${start[1]}`).style.backgroundColor = 'green';
+    }
+
+    if (option === 'finish') {
+      this.setState({ finish: coord })
+      console.log('state finish', finish)
+    }
+
+    if (option === 'wall') {
+      this.setState({ wall: coord })
+      console.log('state wall', wall)
+
+    }
+  }
+
+  handleOptionChange = e => {
+    this.setState({ option: e.target.value })
+  }
+
+  restart() {
+
+    this.forceUpdate()
+    console.log(this.path)
   }
 
   render() {
@@ -85,21 +113,31 @@ export default class Finder extends Component {
     var grids = grid.nodes;
 
     return (
-      <Fragment >
-        <button onClick={this.animateShortestPath}>
-          press to get path
+      <div>
+        <button onClick={this.getPath} style={{ borderRadius: '4px', marginLeft: '5px' }}>
+          Find path
         </button>
-        <button onClick={this.getPath}>
-          press to find path
+        <button onClick={this.animateShortestPath} style={{ borderRadius: '4px', marginLeft: '5px' }}>
+          Go path
         </button>
-        <button onClick={this.getCoordinates}>
-          press to get coordinates
+        <button onClick={this.restart} style={{ borderRadius: '4px', marginLeft: '5px' }}>
+          Restart
         </button>
 
-        <label>
-          <input type="radio" value="option1" checked={console.log('check')} />
-          Option 1
-        </label>
+        <form style={{ marginTop: '10px' }}>
+          <label>
+            <input type="radio" value="start" style={{ marginLeft: '10px' }} checked={this.state.option === 'start'} onChange={this.handleOptionChange} />
+            Start
+          </label>
+          <label>
+            <input type="radio" value="finish" style={{ marginLeft: '10px' }} checked={this.state.option === 'finish'} onChange={this.handleOptionChange} />
+            Finish
+          </label>
+          <label>
+            <input type="radio" value="wall" style={{ marginLeft: '10px' }} checked={this.state.option === 'wall'} onChange={this.handleOptionChange} />
+            Wall
+          </label>
+        </form>
 
         <div
           style={{
@@ -122,7 +160,7 @@ export default class Finder extends Component {
               {/* {console.log("gridAqui", grid)} */}
               {grid.map((elem, Id) => (
                 <div
-                  id={`node-${elem.x}-${elem.y}`}
+                  id={`${elem.x},${elem.y}`}
                   key={Id.id}
                   data={elem}
                   onClick={this.handleCoord}
@@ -143,7 +181,14 @@ export default class Finder extends Component {
           ))
           }
         </div>
-      </Fragment>
+      </div>
     );
   }
 }
+
+// getCoordinates = (e) => {
+  //  this function get coordinates off all screen at pass the mouse
+  //   window.addEventListener('mousemove', function (e) {
+  //     console.log(e.x, e.y)
+  //   })
+  // }
