@@ -6,9 +6,9 @@ const initialState = {
   path: [],
   option: '',
   option: '',
-  start: '',
-  finish: '',
-  wall: ''
+  start: [0, 1],
+  finish: [29, 29],
+  wall: [1, 1]
 
 }
 
@@ -21,7 +21,7 @@ export default class Finder extends Component {
 
     this.setState({ grid });
 
-    console.log("grid1", grid.nodes);
+    console.log("grid nodes", grid.nodes);
 
   }
 
@@ -38,7 +38,7 @@ export default class Finder extends Component {
       }
 
       if (wall != '') {
-        grid.setWalkableAt(this.state.wall[0], this.state.wall[1], false);
+        grid.setWalkableAt(wall[0], wall[1], false);
         document.getElementById(`${wall[0]},${wall[1]}`).style.backgroundColor = 'red';
       }
     }
@@ -81,12 +81,13 @@ export default class Finder extends Component {
     var coord = [x, y]
 
     if (option === 'start') {
+      document.getElementById(`${start[0]},${start[1]}`).style.backgroundColor = 'green';
       this.setState({ start: coord })
       console.log('state start', start)
-      document.getElementById(`${start[0]},${start[1]}`).style.backgroundColor = 'green';
     }
 
     if (option === 'finish') {
+      document.getElementById(`${finish[0]},${finish[1]}`).style.backgroundColor = 'green';
       this.setState({ finish: coord })
       console.log('state finish', finish)
     }
@@ -94,7 +95,12 @@ export default class Finder extends Component {
     if (option === 'wall') {
       this.setState({ wall: coord })
       console.log('state wall', wall)
+    }
 
+    if (option === 'noWall') {
+      document.getElementById(`${coord[0]},${coord[1]}`).style.backgroundColor = 'green';
+      grid.setWalkableAt(coord[0], coord[1], true);
+      console.log('state wall', wall)
     }
   }
 
@@ -136,6 +142,10 @@ export default class Finder extends Component {
           <label>
             <input type="radio" value="wall" style={{ marginLeft: '10px' }} checked={this.state.option === 'wall'} onChange={this.handleOptionChange} />
             Wall
+          </label>
+          <label>
+            <input type="radio" value="noWall" style={{ marginLeft: '10px' }} checked={this.state.option === 'noWall'} onChange={this.handleOptionChange} />
+            Remove Wall
           </label>
         </form>
 
