@@ -6,9 +6,16 @@ const initialState = {
   path: [],
   option: '',
   option: '',
-  start: [0, 1],
-  finish: [29, 29],
-  wall: [1, 1]
+  start: [0, 0],
+  finish: [0, 0],
+  wall: '',
+  noWall: '',
+  breakPath: false,
+  scale: 10,
+  hidden: false,
+  height: 30,
+  width: 30,
+  speed: 150
 
 }
 
@@ -26,7 +33,7 @@ export default class Finder extends Component {
   }
 
   componentDidUpdate(_, prevState) {
-    const { start, finish, wall, grid } = this.state
+    const { start, finish, wall, grid, noWall } = this.state
     if (prevState != this.state) {
 
       if (start != '') {
@@ -40,6 +47,11 @@ export default class Finder extends Component {
       if (wall != '') {
         grid.setWalkableAt(wall[0], wall[1], false);
         document.getElementById(`${wall[0]},${wall[1]}`).style.backgroundColor = 'red';
+      }
+
+      if (noWall != '') {
+        grid.setWalkableAt(noWall[0], noWall[1], true);
+        document.getElementById(`${noWall[0]},${noWall[1]}`).style.backgroundColor = 'green';
       }
     }
   }
@@ -59,21 +71,26 @@ export default class Finder extends Component {
 
   //function to animate the path
   animateShortestPath = () => {
-    const { path } = this.state
+    const { path, breakPath, speed } = this.state
     console.log(path)
-    for (let i = 0; i < path.length; i++) {
-      setTimeout(() => {
-        const node = path[i];
-        document.getElementById(`${node[0]},${node[1]}`).style.backgroundColor = 'yellow';
-        console.log('node', node)
-      }, 150 * i);
+    for (let i = 0; i < path.length || breakPath == true; i++) {
+      if (breakPath == true) {
+        console.log('caiu no break')
+        break
+      } else {
+        setTimeout(() => {
+          const node = path[i];
+          document.getElementById(`${node[0]},${node[1]}`).style.backgroundColor = 'yellow';
+          console.log('node', node)
+        }, (speed * 10) * i);
+      }
     }
   }
 
 
-
+  // function to get coordinates and filter if is start point, finish point or is wall
   handleCoord = (e) => {
-    const { start, finish, wall, grid, option } = this.state
+    const { start, finish, wall, option, hidden } = this.state
     e.preventDefault();
     var node = (e.target.id.split(','))
     var x = Number(node[0])
@@ -81,13 +98,13 @@ export default class Finder extends Component {
     var coord = [x, y]
 
     if (option === 'start') {
-      document.getElementById(`${start[0]},${start[1]}`).style.backgroundColor = 'green';
+      document.getElementById(`${start[0]},${start[1]}`).style.backgroundColor = hidden === true ? 'transparent' : 'green';
       this.setState({ start: coord })
       console.log('state start', start)
     }
 
     if (option === 'finish') {
-      document.getElementById(`${finish[0]},${finish[1]}`).style.backgroundColor = 'green';
+      document.getElementById(`${finish[0]},${finish[1]}`).style.backgroundColor = hidden === true ? 'transparent' : 'green';
       this.setState({ finish: coord })
       console.log('state finish', finish)
     }
@@ -97,25 +114,68 @@ export default class Finder extends Component {
       console.log('state wall', wall)
     }
 
+    // here is remove wall
     if (option === 'noWall') {
-      document.getElementById(`${coord[0]},${coord[1]}`).style.backgroundColor = 'green';
-      grid.setWalkableAt(coord[0], coord[1], true);
+      this.setState({ noWall: coord })
       console.log('state wall', wall)
+      // this.setState({ grid })
     }
   }
 
+  // function to change options in state (start, finish, wall)
   handleOptionChange = e => {
     this.setState({ option: e.target.value })
   }
 
-  restart() {
+  restart = () => {
+    const { path, start, finish, hidden } = this.state;
+    this.setState({ breakPath: true })
 
-    this.forceUpdate()
-    console.log(this.path)
+    if (path) {
+      for (let i = 0; i < path.length; i++) {
+
+        const node = path[i];
+        document.getElementById(`${node[0]},${node[1]}`).style.backgroundColor = hidden === true ? 'transparent' : 'green';
+        // console.log('node', node)
+
+      }
+    }
+    document.getElementById(`${finish[0]},${finish[1]}`).style.backgroundColor = hidden === true ? 'transparent' : 'orange';
+    document.getElementById(`${start[0]},${start[1]}`).style.backgroundColor = hidden === true ? 'transparent' : 'blue';
+    this.setState({ breakPath: false })
+
+  }
+
+  handleScale = (e) => {
+    this.setState({ scale: e.target.value })
+  }
+
+  handleHidden = () => {
+    const { hidden } = this.state
+
+    if (hidden === true) {
+      this.setState({ hidden: false })
+    } else {
+      this.setState({ hidden: true })
+    }
+  }
+
+  handleHeight = (e) => {
+    this.setState({ grid: new PF.Grid(e.target.value, this.state.width) })
+    this.setState({ height: e.target.value })
+  }
+
+  handleWidth = (e) => {
+    this.setState({ grid: new PF.Grid(this.state.height, e.target.value) })
+    this.setState({ width: e.target.value })
+  }
+
+  handleSpeed = (e) => {
+    this.setState({ speed: e.target.value })
   }
 
   render() {
-    var { grid } = this.state;
+    var { grid, scale, hidden } = this.state;
     var grids = grid.nodes;
 
     return (
@@ -129,6 +189,13 @@ export default class Finder extends Component {
         <button onClick={this.restart} style={{ borderRadius: '4px', marginLeft: '5px' }}>
           Restart
         </button>
+        <button onClick={this.handleHidden} style={{ borderRadius: '4px', marginLeft: '5px' }}>
+          Hidden
+        </button>
+        <label style={{ fontSize: '13px' }}>
+          <input type="radio" value="hidden" style={{ marginLeft: '10px' }} checked={this.state.hidden === true} />
+          Hidden
+        </label>
 
         <form style={{ marginTop: '10px' }}>
           <label>
@@ -147,7 +214,13 @@ export default class Finder extends Component {
             <input type="radio" value="noWall" style={{ marginLeft: '10px' }} checked={this.state.option === 'noWall'} onChange={this.handleOptionChange} />
             Remove Wall
           </label>
+
         </form>
+
+        <input type="number" onChange={this.handleScale} placeholder='SCALE' style={{ width: '70px', marginLeft: '10px', borderRadius: '4px' }} />
+        <input type="number" onChange={this.handleHeight} placeholder='HEIGHT' style={{ width: '70px', marginLeft: '10px', borderRadius: '4px' }} />
+        <input type="number" onChange={this.handleWidth} placeholder='WIDTH' style={{ width: '70px', marginLeft: '10px', borderRadius: '4px' }} />
+        <input type="number" onChange={this.handleSpeed} placeholder='SPEED' style={{ width: '70px', marginLeft: '10px', borderRadius: '4px' }} />
 
         <div
           style={{
@@ -175,10 +248,10 @@ export default class Finder extends Component {
                   data={elem}
                   onClick={this.handleCoord}
                   style={{
-                    background: elem.walkable === true ? 'green' : 'red',
-                    border: '1px solid #000',
-                    width: '10px',
-                    height: '10px',
+                    background: hidden === true ? 'transparent' : elem.walkable === true ? 'green' : 'red',
+                    border: hidden === true ? '1px solid transparent' : '1px solid #000',
+                    width: scale * 1,
+                    height: scale * 1,
                     margin: '0px',
                     padding: '0px'
                   }}
