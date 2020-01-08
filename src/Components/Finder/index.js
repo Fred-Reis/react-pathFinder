@@ -5,7 +5,6 @@ const initialState = {
   grid: new PF.Grid(30, 30),
   path: [],
   option: '',
-  option: '',
   start: [0, 0],
   finish: [0, 0],
   wall: '',
@@ -257,7 +256,7 @@ export default class Finder extends Component {
                   }}
                 >
                   {/* {console.log("elemAqui", elem)} */}
-                  {/* <p style={{ fontSize: '10px', textAlign: 'center' }}>{`${elem.x} , ${elem.y} , ${elem.walkable}`}</p> */}
+                  {/* <p style={{ fontSize: scale * 0.4, textAlign: 'center' }}>{`${elem.x} , ${elem.y} , ${elem.walkable}`}</p> */}
                 </div>
               ))}
             </div>
