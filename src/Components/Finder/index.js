@@ -14,7 +14,7 @@ const initialState = {
   hidden: false,
   height: 30,
   width: 30,
-  speed: 15
+  speed: 15,
 };
 
 export default class Finder extends Component {
@@ -99,7 +99,7 @@ export default class Finder extends Component {
   };
 
   // function to get coordinates and filter if is start point, finish point or is wall
-  handleCoord = e => {
+  handleCoord = (e) => {
     const { start, finish, wall, option, hidden } = this.state;
     e.preventDefault();
     var node = e.target.id.split(",");
@@ -137,10 +137,10 @@ export default class Finder extends Component {
   };
 
   // function to change options in state (start, finish, wall)
-  handleOptionChange = e => this.setState({ option: e.target.value });
+  handleOptionChange = (e) => this.setState({ option: e.target.value });
 
   // function to change scale
-  handleScale = e => this.setState({ scale: e.target.value });
+  handleScale = (e) => this.setState({ scale: e.target.value });
 
   // function to restart the pathfinder
   restart = () => {
@@ -174,7 +174,7 @@ export default class Finder extends Component {
   };
 
   // funtion to set the height of grid
-  handleHeight = e => {
+  handleHeight = (e) => {
     if (e.target.value > 0) {
       this.setState({ grid: new PF.Grid(this.state.width, e.target.value) });
       this.setState({ height: e.target.value });
@@ -182,14 +182,14 @@ export default class Finder extends Component {
   };
 
   // function to set the width of grid
-  handleWidth = e => {
+  handleWidth = (e) => {
     if (e.target.value > 0) {
       this.setState({ grid: new PF.Grid(e.target.value, this.state.height) });
       this.setState({ width: e.target.value });
     }
   };
 
-  handleSpeed = e => this.setState({ speed: e.target.value });
+  handleSpeed = (e) => this.setState({ speed: e.target.value });
 
   render() {
     var { grid, scale, hidden } = this.state;
@@ -303,10 +303,10 @@ export default class Finder extends Component {
           style={{
             display: "flex",
             flexDirection: "column",
-            margin: "20px"
+            margin: "20px",
           }}
         >
-          {grids.map(grid => (
+          {grids.map((grid) => (
             <div
               className="row"
               key={grid.id}
@@ -314,7 +314,7 @@ export default class Finder extends Component {
               style={{
                 display: "flex",
                 margin: "0px",
-                padding: "0px"
+                padding: "0px",
               }}
             >
               {/* {console.log("gridAqui", grid)} */}
@@ -338,7 +338,7 @@ export default class Finder extends Component {
                     width: scale * 1,
                     height: scale * 1,
                     margin: "0px",
-                    padding: "0px"
+                    padding: "0px",
                   }}
                 >
                   {/* {console.log("elemAqui", elem)} */}

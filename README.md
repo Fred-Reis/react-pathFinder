@@ -1,68 +1,100 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">REACTJS PATHFINDER</h1>
+ <br/>
+<p align="center">
 
-## Available Scripts
+  <img alt="language version" src="https://img.shields.io/badge/Node-v_12.13.1-339933?logo=node.js">
 
-In the project directory, you can run:
+  <img alt="language version" src="https://img.shields.io/badge/Yarn-v_1.22.4-2C8EBB?logo=Yarn">
 
-### `yarn start`
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Fred-Reis/react-grid">
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Fred-Reis/react-grid">
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  <img alt="GitHub repo size in bytes" src="https://img.shields.io/github/repo-size/Fred-Reis/react-grid">
 
-### `yarn test`
+  <a href="https://www.codacy.com/manual/Fred-Reis/react-grid?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Fred-Reis/react-grid&amp;utm_campaign=Badge_Grade">
+    <img src="https://api.codacy.com/project/badge/Grade/94bce9c6787b461990d639d11336a93b"/></a>
+  
+  <a href="https://app.netlify.com/sites/practical-einstein-ea85db/deploys">
+    <img src="https://api.netlify.com/api/v1/badges/bc1c2ffc-7ebd-4299-ae0e-609eb1629894/deploy-status"/></a>
+</p>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br/>
+<hr/>
 
-### `yarn build`
+<h4 align="center">Links:</h4>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p align="center">
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+  <a href="#-about-this-project">
+    <img src="https://img.shields.io/badge/About_Project-a5a5a5"/>
+  </a>&nbsp;&nbsp;
+  <a href="#-clone-this-project">
+    <img src="https://img.shields.io/badge/Clone_this_project-a5a5a5"/>
+  </a>&nbsp;&nbsp;
+  <a href="#author-frederico-reis">
+    <img src="https://img.shields.io/badge/Author-a5a5a5"/>
+  </a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+</p>
 
-### `yarn eject`
+![demo](assets/readme/demo.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[Try yourself on browser clicking here](https://practical-einstein-ea85db.netlify.app/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 💡 About this Project:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**This Project was implemented a Pathfinder using AStar method and css to background**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🏁 Clone this project:
 
-## Learn More
+To run on the first time,
+into your folder:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+$ git clone https://github.com/Fred-Reis/react-grid
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Into repo folder, to install `Node_Modules` run:
 
-### Code Splitting
+```bash
+yarn
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+And to start on browser:
 
-### Analyzing the Bundle Size
+```bash
+yarn start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+😃 Now run this project and...
+**BE HAPPY**.
 
-### Making a Progressive Web App
+<h4>
+  😍 Thanks for you interest!
+</h4>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+<br/>
 
-### Advanced Configuration
+<h4 align="center">
+  "Stay hungry stay foolish!"
+</h4>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+<br/>
 
-### Deployment
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+<h3 align="center">
+Author: <a alt="Fred-Reis" href="https://github.com/Fred-Reis">Frederico Reis</a>
+</h3>
 
-### `yarn build` fails to minify
+<p align="center">
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  <a alt="Frederico Reis" href="https://www.linkedin.com/in/frederico-reis-dev/">
+    <img src="https://img.shields.io/badge/LinkedIn-Frederico_Reis-0077B5?logo=linkedin"/></a>
+  <a alt="Frederico Reis" href="https://github.com/Fred-Reis ">
+  <img src="https://img.shields.io/badge/Fred_Reis-GitHub-000?logo=github"/></a>
+
+</p>
+
+MAKE WITH LOVE ❤️
