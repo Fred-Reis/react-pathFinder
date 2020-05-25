@@ -38,7 +38,7 @@
 
 </p>
 
-![demo](assets/readme/demo.gif)
+![demo](/assets/readme/demo.gif)
 
 [Try yourself on browser clicking here](https://practical-einstein-ea85db.netlify.app/)
 
